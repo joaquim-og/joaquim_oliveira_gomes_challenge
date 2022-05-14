@@ -1,0 +1,2 @@
+rootProject.name = "joaquim_gomes_WIT_challenge"
+include ':app'
