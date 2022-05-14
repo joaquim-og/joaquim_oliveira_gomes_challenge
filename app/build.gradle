@@ -27,8 +27,13 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            debuggable=false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            debuggable=true
         }
     }
     compileOptions {
@@ -48,6 +53,12 @@ android {
             property "sonar.organization", "joaquim-og"
             property "sonar.host.url", "https://sonarcloud.io"
         }
+    }
+
+    lintOptions {
+        abortOnError false
+        htmlReport true
+        htmlOutput file("lint-report.html")
     }
 }
 
@@ -71,6 +82,9 @@ dependencies {
 
     //Firebase BOM
     implementation platform('com.google.firebase:firebase-bom:30.0.1')
+
+    //Firestore
+    implementation 'com.google.firebase:firebase-firestore-ktx'
 
     //Analytics
     implementation 'com.google.firebase:firebase-analytics-ktx'
