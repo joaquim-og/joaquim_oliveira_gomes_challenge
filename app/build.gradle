@@ -8,7 +8,6 @@ plugins {
     id 'com.google.firebase.firebase-perf'
     id "org.sonarqube" version "3.3"
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
-    id "io.sentry.android.gradle" version "3.1.0-beta.2"
 }
 
 android {
@@ -136,4 +135,6 @@ dependencies {
     //WorkManager
     implementation "androidx.work:work-runtime-ktx:$versions_work"
 
+    //Sentry
+    implementation 'io.sentry:sentry-android:5.7.4'
 }
