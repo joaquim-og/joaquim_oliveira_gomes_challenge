@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">joaquim_gomes_WIT_challenge</string>
+
+    <!--    Weather api responses strings-->
+    <string name="error_empty_response_weather_data">Não teve dados na resposta da weather api</string>
+    <string name="error_response_not_successful_weather_data">A resposta não foi bem sucedida da weather api</string>
+</resources>

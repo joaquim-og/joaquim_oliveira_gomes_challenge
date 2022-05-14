@@ -9,4 +9,8 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!--    Weather api responses strings-->
+    <string name="error_empty_response_weather_data">No data in api weather response</string>
+    <string name="error_response_not_successful_weather_data">Weather api response was not successful</string>
 </resources>

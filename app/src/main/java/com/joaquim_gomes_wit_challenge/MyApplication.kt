@@ -8,7 +8,9 @@ import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.ktx.Firebase
 import com.joaquim_gomes_wit_challenge.data.commom.inAppFirebaseAnalytics.InAppFirebaseAnalytics.firebaseAnalytics
 import com.joaquim_gomes_wit_challenge.koinModules.commom.injectCommonClassesModule
+import com.joaquim_gomes_wit_challenge.koinModules.home.injectAddressLatLngKoinModule
 import com.joaquim_gomes_wit_challenge.koinModules.home.injectRemoteKeysInfoKoinModule
+import com.joaquim_gomes_wit_challenge.koinModules.home.injectRemoteWeatherInfoKoinModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -42,6 +44,8 @@ class MyApplication : Application() {
 
         injectCommonClassesModule()
         injectRemoteKeysInfoKoinModule()
+        injectRemoteWeatherInfoKoinModule()
+        injectAddressLatLngKoinModule()
     }
 
     private fun appChecker() {
