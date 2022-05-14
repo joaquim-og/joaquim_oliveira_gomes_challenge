@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.joaquim_gomes_wit_challenge.R
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects
 import com.joaquim_gomes_wit_challenge.databinding.FragmentFirstBinding
 
 /**
@@ -36,6 +37,7 @@ class FirstFragment : Fragment() {
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
+
     }
 
     override fun onDestroyView() {
