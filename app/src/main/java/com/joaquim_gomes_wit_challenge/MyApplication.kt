@@ -9,6 +9,7 @@ import com.google.firebase.ktx.Firebase
 import com.joaquim_gomes_wit_challenge.data.commom.inAppFirebaseAnalytics.InAppFirebaseAnalytics.firebaseAnalytics
 import com.joaquim_gomes_wit_challenge.koinModules.commom.injectCommonClassesModule
 import com.joaquim_gomes_wit_challenge.koinModules.home.injectAddressLatLngKoinModule
+import com.joaquim_gomes_wit_challenge.koinModules.home.injectHomeModule
 import com.joaquim_gomes_wit_challenge.koinModules.home.injectRemoteKeysInfoKoinModule
 import com.joaquim_gomes_wit_challenge.koinModules.home.injectRemoteWeatherInfoKoinModule
 import org.koin.android.ext.koin.androidContext
@@ -46,6 +47,7 @@ class MyApplication : Application() {
         injectRemoteKeysInfoKoinModule()
         injectRemoteWeatherInfoKoinModule()
         injectAddressLatLngKoinModule()
+        injectHomeModule()
     }
 
     private fun appChecker() {
