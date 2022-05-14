@@ -1,4 +1,4 @@
-package com.joaquim_gomes_wit_challenge.views
+package com.joaquim_gomes_wit_challenge.views.ui.xml
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

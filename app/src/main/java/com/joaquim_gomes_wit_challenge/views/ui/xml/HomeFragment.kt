@@ -1,4 +1,4 @@
-package com.joaquim_gomes_wit_challenge.views
+package com.joaquim_gomes_wit_challenge.views.ui.xml
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,16 +9,16 @@ import androidx.navigation.fragment.findNavController
 import com.joaquim_gomes_wit_challenge.R
 import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects
 import com.joaquim_gomes_wit_challenge.databinding.FragmentFirstBinding
+import com.joaquim_gomes_wit_challenge.views.viewModel.HomeViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class FirstFragment : Fragment() {
+
+class HomeFragment : Fragment() {
+
+    private val homeViewModel: HomeViewModel by sharedViewModel()
 
     private var _binding: FragmentFirstBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(

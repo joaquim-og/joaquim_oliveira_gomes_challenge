@@ -6,6 +6,7 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.appcheck.FirebaseAppCheck
 import com.google.firebase.appcheck.safetynet.SafetyNetAppCheckProviderFactory
 import com.google.firebase.ktx.Firebase
+import com.joaquim_gomes_wit_challenge.data.commom.SharedPrefs
 import com.joaquim_gomes_wit_challenge.data.commom.inAppFirebaseAnalytics.InAppFirebaseAnalytics.firebaseAnalytics
 import com.joaquim_gomes_wit_challenge.koinModules.commom.injectCommonClassesModule
 import com.joaquim_gomes_wit_challenge.koinModules.home.injectAddressLatLngKoinModule
@@ -26,15 +27,12 @@ class MyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        globalContext = this
+        globalContext = this@MyApplication
 
         initKoin()
+        initPrefs()
         initInAppFirebaseAnalytics()
         appChecker()
-    }
-
-    private fun initInAppFirebaseAnalytics() {
-        firebaseAnalytics = Firebase.analytics
     }
 
     private fun initKoin() {
@@ -48,6 +46,14 @@ class MyApplication : Application() {
         injectRemoteWeatherInfoKoinModule()
         injectAddressLatLngKoinModule()
         injectHomeModule()
+    }
+
+    private fun initPrefs() {
+        SharedPrefs.getPrefs(globalContext)
+    }
+
+    private fun initInAppFirebaseAnalytics() {
+        firebaseAnalytics = Firebase.analytics
     }
 
     private fun appChecker() {
