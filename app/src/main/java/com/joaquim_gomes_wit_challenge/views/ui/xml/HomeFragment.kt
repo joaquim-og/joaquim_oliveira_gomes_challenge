@@ -142,6 +142,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToSelectedCity() {
+        //TODO
+        // arrumar o layout dos cards, setar um pouco de margem em cima
+        // arrumar os LAT e LNG que realmente estão fora da cidade, pegar o genérico da cidade
+        // puxar a tela dos próximos passos
+        // ta dando erro só pq alterei o flow do CI
+
         toastMessage.setToastMessage("AQUI VAI PRA TELA DE DETALHES")
     }
 
