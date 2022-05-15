@@ -1,4 +1,4 @@
-package com.joaquim_gomes_wit_challenge.views
+package com.joaquim_gomes_wit_challenge.views.ui.xml
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -33,9 +33,9 @@ class SecondFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
-        }
+//        binding.buttonSecond.setOnClickListener {
+//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//        }
     }
 
     override fun onDestroyView() {

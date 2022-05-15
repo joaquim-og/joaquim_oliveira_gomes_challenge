@@ -2,6 +2,18 @@
 <resources>
     <string name="app_name">joaquim_gomes_WIT_challenge</string>
 
+    <!--    Generic-->
+    <string name="no_network_error">Opa, você não está conectado a internet 📡</string>
+    <string name="fragment_request_location_dialog_title">Precisamos de sua localização</string>
+    <string name="fragment_request_location_dialog_textView">Não se preocupe, so vamos utilizar sua localização para pegar os dados meteorológicos 😉.</string>
+    <string name="fragment_request_location_dialog_button">Entendi</string>
+    <string name="access_fine_location_permissions_denied">Precisamos de sua permissão para conseguir os dados metereológicos</string>
+
+    <!--    First fragment strings-->
+    <string name="first_fragment_get_user_permissions_text_first">Primeiro, precisamos te pedir de algumas permissões 😉.</string>
+    <string name="first_fragment_get_user_permissions_text_second">Aperte o botão abaixo para avançarmos.</string>
+    <string name="first_fragment_get_user_permissions_button">Solicitar permissões</string>
+
     <!--    Weather api responses strings-->
     <string name="error_empty_response_weather_data">Não teve dados na resposta da weather api</string>
     <string name="error_response_not_successful_weather_data">A resposta não foi bem sucedida da weather api</string>

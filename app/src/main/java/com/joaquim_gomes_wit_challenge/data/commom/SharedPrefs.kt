@@ -13,7 +13,7 @@ open class SharedPrefs {
         private var sharedPrefs: SharedPreferences? =
             globalContext.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)
 
-        private fun getPrefs(context: Context): SharedPreferences {
+        fun getPrefs(context: Context): SharedPreferences {
 
             if (sharedPrefs == null) {
                 sharedPrefs = context.getSharedPreferences(PREFS_KEY, Context.MODE_PRIVATE)

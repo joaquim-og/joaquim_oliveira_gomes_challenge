@@ -1,16 +1,21 @@
 <resources>
     <string name="app_name">joaquim_gomes_WIT_challenge</string>
-    <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <!--    Generic-->
+    <string name="no_network_error">Ouch, you had run out of internet access 📡</string>
+    <string name="fragment_request_location_dialog_title">We need to know your location</string>
+    <string name="fragment_request_location_dialog_textView">No worries, we will use your location just to get meteorologic data 😉.</string>
+    <string name="fragment_request_location_dialog_button">Ok!</string>
+    <string name="access_fine_location_permissions_denied">We need your permission to get meteorologic data</string>
+
+    <!--    First fragment strings-->
+    <string name="first_fragment_get_user_permissions_text_first">First, we need to get some permissions 😉.</string>
+    <string name="first_fragment_get_user_permissions_text_second">Tap the button below to proceed</string>
+    <string name="first_fragment_get_user_permissions_button">Get permissions</string>
 
     <!--    Weather api responses strings-->
     <string name="error_empty_response_weather_data">No data in api weather response</string>
     <string name="error_response_not_successful_weather_data">Weather api response was not successful</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

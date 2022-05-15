@@ -27,12 +27,12 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            debuggable=false
+            debuggable = false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
             minifyEnabled false
-            debuggable=true
+            debuggable = true
         }
     }
     compileOptions {
@@ -43,7 +43,7 @@ android {
         jvmTarget = '11'
     }
     buildFeatures {
-        viewBinding true
+        dataBinding true
     }
 
     sonarqube {
@@ -105,16 +105,20 @@ dependencies {
     def lottieVersion = "5.1.1"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
-    // Koin for Kotlin Multiplatform
+    // Koin
     implementation "io.insert-koin:koin-core:$koin_version"
-    // Koin Test for Kotlin Multiplatform
+    // Koin Test features
     testImplementation "io.insert-koin:koin-test:$koin_version"
-    // Koin main features for Android (Scope,ViewModel ...)
+    // Koin main features for Android
     implementation "io.insert-koin:koin-android:$koin_version"
-    // Koin Android - experimental builder extensions
-    implementation "io.insert-koin:koin-android-ext:$koin_version"
-    // Koin for Jetpack WorkManager
+    // Java Compatibility
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
+    // Jetpack WorkManager
     implementation "io.insert-koin:koin-androidx-workmanager:$koin_version"
+    // Navigation Graph
+    implementation "io.insert-koin:koin-androidx-navigation:$koin_version"
+    // Jetpack Compose
+    implementation "io.insert-koin:koin-androidx-compose:$koin_version"
 
     //KotlinX-datetime
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.3.3")
