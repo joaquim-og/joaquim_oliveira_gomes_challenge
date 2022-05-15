@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.databinding.DataBindingUtil
+import com.google.android.gms.location.LocationServices
 import com.joaquim_gomes_wit_challenge.R
 import com.joaquim_gomes_wit_challenge.data.commom.SharedPrefs
 import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.WEATHER_API_CALL_LANG

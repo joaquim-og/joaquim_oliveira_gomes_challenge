@@ -9,10 +9,17 @@
     <string name="fragment_request_location_dialog_button">Entendi</string>
     <string name="access_fine_location_permissions_denied">Precisamos de sua permissão para conseguir os dados metereológicos</string>
 
+    <!--Generic Placeholders-->
+    <string name="general_text_place_holder_title">Name City Placeholder</string>
+    <string name="general_text_place_holder_text"><![CDATA[#Placeholder_Text]]></string>
+    <string name="general_text_place_holder_description_weather_temp">#weather_temp º</string>
+    <string name="general_text_place_holder_description_weather_text">#weather_description</string>
+
     <!--    First fragment strings-->
     <string name="first_fragment_get_user_permissions_text_first">Primeiro, precisamos te pedir de algumas permissões 😉.</string>
     <string name="first_fragment_get_user_permissions_text_second">Aperte o botão abaixo para avançarmos.</string>
     <string name="first_fragment_get_user_permissions_button">Solicitar permissões</string>
+    <string name="first_fragment_error_get_api_data">Não foi possível acessar os dados de tempo agora. Tente novamente mais tarde</string>
 
     <!--    Weather api responses strings-->
     <string name="error_empty_response_weather_data">Não teve dados na resposta da weather api</string>

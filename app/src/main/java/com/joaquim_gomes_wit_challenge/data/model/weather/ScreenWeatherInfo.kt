@@ -14,4 +14,4 @@ data class ScreenWeatherInfo(
 
     var description_weather: String? = null,
 
-)
+    )

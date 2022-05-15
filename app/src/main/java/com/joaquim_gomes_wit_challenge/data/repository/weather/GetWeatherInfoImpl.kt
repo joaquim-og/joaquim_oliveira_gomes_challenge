@@ -17,6 +17,16 @@ import com.joaquim_gomes_wit_challenge.data.commom.inAppFirebaseAnalytics.InAppF
 import com.joaquim_gomes_wit_challenge.data.commom.inAppFirebaseAnalytics.InAppFirebaseAnalytics.firebaseAnalytics
 import com.joaquim_gomes_wit_challenge.data.model.weather.ScreenWeatherInfo
 import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherApiResult
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.BERLIN_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.COPENHAGEN_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.DUBLIN_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.LISBON_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.LONDON_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.MADRID_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.PARIS_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.PRAGUE_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.ROME_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.VIENNA_LAT_LONG
 import com.joaquim_gomes_wit_challenge.data.network.weather_api.RemoteDataSourceWeatherInfo
 import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.ERROR_CALL_API_WEATHER
 import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.STATUS_OK
@@ -31,30 +41,53 @@ class GetWeatherInfoImpl(
     private val remoteDataSourceWeatherInfo: RemoteDataSourceWeatherInfo,
     private val repositoryGetAddressInfo: GetAddressInfoImpl,
     private val decoder: Decoder,
-): GetWeatherInfo {
+) : GetWeatherInfo {
 
     private val _errorOnGetWeather = MutableLiveData<Boolean?>()
     val errorOnGetWeather: LiveData<Boolean?> get() = _errorOnGetWeather
 
-    private val _weatherInfo = MutableLiveData<ScreenWeatherInfo?>()
-    val weatherInfo: LiveData<ScreenWeatherInfo?> get() = _weatherInfo
+    private val _weatherInfo = MutableLiveData<List<ScreenWeatherInfo?>>()
+    val weatherInfo: LiveData<List<ScreenWeatherInfo?>> get() = _weatherInfo
 
     private val _userLocalLatLng = repositoryGetAddressInfo.userLocalLatLng
 
     override fun getWeatherInfoByLatLong(fusedLocationClient: FusedLocationProviderClient) {
 
         CoroutineScope(Dispatchers.IO).launch {
-            val res = async { repositoryGetAddressInfo.getDeviceLocation(fusedLocationClient) }
-            val localDeviceLatLng = res.await()
-            withContext(Dispatchers.IO) {
-                localDeviceLatLng.let {
-                    _userLocalLatLng.value?.let { latLng -> getWeatherData(latLng) }
-                }
-            }
+
+            repositoryGetAddressInfo.getDeviceLocation(
+                fusedLocationClient,
+                userLatLng = { userLatLng ->
+
+                    val listOfWeatherData = mutableListOf<ScreenWeatherInfo>()
+
+                    val listOfCities = listOf(
+                        userLatLng,
+                        LISBON_LAT_LONG,
+                        PARIS_LAT_LONG,
+                        MADRID_LAT_LONG,
+                        BERLIN_LAT_LONG,
+                        COPENHAGEN_LAT_LONG,
+                        ROME_LAT_LONG,
+                        LONDON_LAT_LONG,
+                        DUBLIN_LAT_LONG,
+                        PRAGUE_LAT_LONG,
+                        VIENNA_LAT_LONG
+                    )
+
+                    listOfCities.forEach {
+                        getWeatherData(it, weatherData = { cityWeather ->
+                            listOfWeatherData.add(cityWeather)
+                            _weatherInfo.postValue(listOfWeatherData)
+                        })
+                    }
+
+                })
         }
     }
 
-    private fun getWeatherData(latLng: LatLng) {
+    private fun getWeatherData(latLng: LatLng, weatherData: (ScreenWeatherInfo) -> Unit) {
+
         val getWeatherResult = remoteDataSourceWeatherInfo.getWeatherInfoByPassingLatLong(
             latLng,
             decoder.decoder(SharedPrefs.getApiKeyData(WEATHER_API_KEY))
@@ -79,7 +112,6 @@ class GetWeatherInfoImpl(
                             if (responseData.cod == STATUS_OK) {
                                 responseData.let {
                                     val weatherInfo = ScreenWeatherInfo(
-                                        date = it.dt.toString(),
                                         name_city = it.name,
                                         temperature = it.main.temp.toString(),
                                         icon = it.weather[0].icon,
@@ -87,7 +119,7 @@ class GetWeatherInfoImpl(
                                         description_weather = it.weather[0].description
                                     )
 
-                                    _weatherInfo.value = weatherInfo
+                                    weatherData(weatherInfo)
 
                                     registerFirebaseWeatherLogs(true, responseData.cod.toString())
                                 }

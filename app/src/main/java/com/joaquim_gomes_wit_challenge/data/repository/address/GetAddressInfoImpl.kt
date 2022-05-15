@@ -8,24 +8,26 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.model.LatLng
 import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.ERROR_CALL_API_LAT_LNG
 
-class GetAddressInfoImpl() : GetAddressInfo{
+class GetAddressInfoImpl() : GetAddressInfo {
 
     private val _userLocalLatLng = MutableLiveData<LatLng?>()
     val userLocalLatLng: LiveData<LatLng?> get() = _userLocalLatLng
 
-    override fun getDeviceLocation(fusedLocationClient: FusedLocationProviderClient) {
+    override fun getDeviceLocation(
+        fusedLocationClient: FusedLocationProviderClient,
+        userLatLng: (LatLng) -> Unit
+    ) {
         try {
             if (_userLocalLatLng.value == null) {
 
                 fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
                     if (location != null) {
-                        _userLocalLatLng.postValue(
+                        userLatLng(
                             LatLng(
                                 location.latitude,
                                 location.longitude
                             )
                         )
-
                     }
                 }
             }
