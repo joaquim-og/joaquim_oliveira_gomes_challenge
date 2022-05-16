@@ -30,13 +30,13 @@
 
 ## 🔧 Code Analysis
 - [x] [Sonar Cloud quality granteed]
-![image](https://user-images.githubusercontent.com/37637934/168501946-4442a8a3-f390-44b8-9c93-742b893ef428.png)
+![image](https://user-images.githubusercontent.com/37637934/168685225-43c39ff8-2191-490f-a436-76de22febd62.png)
 
 - [x] [Weather Api response]
-![image](https://user-images.githubusercontent.com/37637934/168502013-3781af41-ac7e-492c-a7f6-fe9f883caf6a.png)
+![image](https://user-images.githubusercontent.com/37637934/168685109-3f291a60-a0da-4dfc-8f25-49fc8ecc205a.png)
 
 - [x] [Sentry analyse perform]
-![image](https://user-images.githubusercontent.com/37637934/168502100-73407b75-c652-4fb3-a8a9-84f0223eb056.png)
+![image](https://user-images.githubusercontent.com/37637934/168685332-00803a8a-5fb9-4312-80fe-e511dbb01dd5.png)
 
 
 ## ⚠ Obs:
