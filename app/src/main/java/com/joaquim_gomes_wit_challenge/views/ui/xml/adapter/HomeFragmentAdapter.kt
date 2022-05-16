@@ -10,6 +10,7 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.joaquim_gomes_wit_challenge.R
+import com.joaquim_gomes_wit_challenge.data.commom.extensions.mapWeatherIcon
 import com.joaquim_gomes_wit_challenge.data.model.weather.ScreenWeatherInfo
 import com.joaquim_gomes_wit_challenge.databinding.CardHomeRecyclerViewBinding
 import com.joaquim_gomes_wit_challenge.views.viewModel.HomeViewModel
@@ -39,7 +40,7 @@ class HomeFragmentAdapter(
 
     override fun onBindViewHolder(holder: EventsView, position: Int) {
         val eventDetailsItem = events[position]
-        holder.binding.eventItem = eventDetailsItem
+        holder.binding.wheaterItem = eventDetailsItem
         holder.binding.root.setOnClickListener { onClick.invoke(eventDetailsItem) }
         holder.bind(eventDetailsItem, position)
         setAnimation(holder.itemView)
@@ -81,7 +82,7 @@ class HomeFragmentAdapter(
                 ).replace("#weather_temp", weatherData.temperatureActual ?: "")
                 cardHomeEventItemDate.text = weatherData.date
                 cardHomeEventItemWeatherDescription.text = weatherData.descriptionWeather
-                cardHomeImgAnimation.setAnimation(homeViewModel.getWeatherIcon(weatherData.icon))
+                cardHomeImgAnimation.setAnimation(weatherData.icon?.mapWeatherIcon())
             }
         }
     }

@@ -7,7 +7,7 @@
     <data>
 
         <variable
-            name="eventItem"
+            name="wheaterItem"
             type="com.joaquim_gomes_wit_challenge.data.model.weather.ScreenWeatherInfo" />
     </data>
 
@@ -47,11 +47,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:elevation="5dp"
-                    app:lottie_fileName="home_animation_loading.json"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:lottie_autoPlay="true"
+                    app:lottie_fileName="home_animation_loading.json"
                     app:lottie_loop="true" />
 
                 <TextView
@@ -61,13 +61,14 @@
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/drawable_name_city_description"
                     android:drawablePadding="10dp"
                     android:ellipsize="end"
                     android:maxWidth="200dp"
                     android:maxLines="2"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    android:text="@{eventItem.nameCity}"
+                    android:text="@{wheaterItem.nameCity}"
                     android:textAlignment="textStart"
                     android:textSize="@dimen/general_title_dimen"
                     app:drawableStartCompat="@drawable/ic_baseline_location_city_24"
@@ -80,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:contentDescription="@string/drawable_temp_city_description"
                     android:drawablePadding="10dp"
                     android:ellipsize="end"
                     android:maxWidth="304dp"
@@ -98,6 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12dp"
+                    android:contentDescription="@string/drawable_date_city_description"
                     android:drawablePadding="10dp"
                     android:ellipsize="end"
                     android:maxWidth="304dp"
@@ -118,6 +121,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
+                    android:contentDescription="@string/drawable_weather_description_city_description"
                     android:drawablePadding="10dp"
                     android:ellipsize="end"
                     android:maxWidth="304dp"
@@ -127,7 +131,7 @@
                     android:textAlignment="textStart"
                     android:textSize="@dimen/card_home_event_detail_normal_dimen"
                     app:drawableStartCompat="@drawable/ic_baseline_info_24"
-                    app:getEventWeatherDescription="@{eventItem.descriptionWeather}"
+                    app:getEventWeatherDescription="@{wheaterItem.descriptionWeather}"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/card_home_event_item_date"
                     app:layout_constraintTop_toBottomOf="@+id/card_home_event_item_date"

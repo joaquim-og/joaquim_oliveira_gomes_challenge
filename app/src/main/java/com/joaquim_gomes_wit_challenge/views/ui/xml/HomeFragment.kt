@@ -91,6 +91,10 @@ class HomeFragment : Fragment() {
                     }
                 }
             }
+
+            fragmentHomeButtonGoToComposeUi.setOnClickListener {
+                navigateToComposeUi()
+            }
         }
     }
 
@@ -132,6 +136,7 @@ class HomeFragment : Fragment() {
             with(binding) {
                 fragmentHomeLoading.hide()
                 fragmentHomeEventRecyclerView.adapter = weatherAdapter
+                fragmentHomeButtonGoToComposeUi.show()
                 fragmentHomeEventRecyclerView.show()
                 weatherAdapter.notifyDataSetChanged()
             }
@@ -146,6 +151,10 @@ class HomeFragment : Fragment() {
 
     private fun navigateToRequestUserLocationPermissionDialog() {
         navigateSafe(R.id.action_nav_home_to_fragmentRequestLocationBottomDialog)
+    }
+
+    private fun navigateToComposeUi() {
+        navigateSafe(R.id.action_nav_home_to_homeFragmentComposeView)
     }
 
     private fun hideRequestPermissionsUiElements() {

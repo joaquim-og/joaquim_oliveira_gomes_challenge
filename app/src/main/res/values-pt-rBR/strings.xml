@@ -8,6 +8,19 @@
     <string name="fragment_request_location_dialog_textView">Não se preocupe, so vamos utilizar sua localização para pegar os dados meteorológicos 😉.</string>
     <string name="fragment_request_location_dialog_button">Entendi</string>
     <string name="access_fine_location_permissions_denied">Precisamos de sua permissão para conseguir os dados metereológicos</string>
+    <string name="compose_ui_list_weather_info">Sem dados meteorológicos 😖</string>
+
+    <!--    Drawable descriptions -->
+    <string name="drawable_name_city_description">Nome da cidade</string>
+    <string name="drawable_temp_city_description">Temperatura atual da cidade</string>
+    <string name="drawable_min_temp_city_description">Temperatura mínima da cidade</string>
+    <string name="drawable_max_temp_city_description">Temperatura máxima da cidade</string>
+    <string name="drawable_air_pressure_city_description">Pressão do ar da cidade</string>
+    <string name="drawable_visibility_city_description">Visibilidade</string>
+    <string name="drawable_wind_velocity_description">Velocidade do vento da cidade</string>
+    <string name="drawable_date_city_description">Data atual</string>
+    <string name="drawable_weather_description_city_description">Descrição do tempo atual</string>
+    <string name="drawable_weather_description_city_humidity">Humidade atual da cidade</string>
 
     <!--Generic Placeholders-->
     <string name="general_text_place_holder_title">Name City Placeholder</string>
@@ -19,6 +32,7 @@
     <string name="home_fragment_get_user_permissions_text_first">Primeiro, precisamos te pedir de algumas permissões 😉.</string>
     <string name="home_fragment_get_user_permissions_text_second">Aperte o botão abaixo para avançarmos.</string>
     <string name="home_fragment_get_user_permissions_button">Solicitar permissões</string>
+    <string name="home_fragment_go_to_compose_ui_button">Ver a Ui no Android Compose</string>
 
     <!--    Detail Fragment Strings-->
     <string name="details_fragment_actual_temp">Temperatura atual #actualTemp º</string>

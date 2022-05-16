@@ -7,6 +7,19 @@
     <string name="fragment_request_location_dialog_textView">No worries, we will use your location just to get meteorologic data 😉.</string>
     <string name="fragment_request_location_dialog_button">Ok!</string>
     <string name="access_fine_location_permissions_denied">We need your permission to get meteorologic data</string>
+    <string name="compose_ui_list_weather_info">No Weather data 😖</string>
+
+    <!--    Drawable descriptions -->
+    <string name="drawable_name_city_description">City name</string>
+    <string name="drawable_temp_city_description">City actual temperature</string>
+    <string name="drawable_min_temp_city_description">City min temperature</string>
+    <string name="drawable_max_temp_city_description">City max temperature</string>
+    <string name="drawable_air_pressure_city_description">City air pressure</string>
+    <string name="drawable_visibility_city_description">City visibility</string>
+    <string name="drawable_wind_velocity_description">City wind velocity</string>
+    <string name="drawable_date_city_description">Actual date</string>
+    <string name="drawable_weather_description_city_description">Actual weather description</string>
+    <string name="drawable_weather_description_city_humidity">City actual humidity</string>
 
     <!--Generic Placeholders-->
     <string name="general_text_place_holder_title">Name City Placeholder</string>
@@ -18,6 +31,7 @@
     <string name="home_fragment_get_user_permissions_text_first">First, we need to get some permissions 😉.</string>
     <string name="home_fragment_get_user_permissions_text_second">Tap the button below to proceed</string>
     <string name="home_fragment_get_user_permissions_button">Get permissions</string>
+    <string name="home_fragment_go_to_compose_ui_button">See Ui in Android Compose</string>
 
     <!--    Detail Fragment Strings-->
     <string name="details_fragment_actual_temp">Actual temperature #actualTemp º</string>
