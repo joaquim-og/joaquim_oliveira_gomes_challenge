@@ -15,13 +15,26 @@
     <string name="general_text_place_holder_description_weather_temp">#weather_temp º</string>
     <string name="general_text_place_holder_description_weather_text">#weather_description</string>
 
-    <!--    First fragment strings-->
-    <string name="first_fragment_get_user_permissions_text_first">Primeiro, precisamos te pedir de algumas permissões 😉.</string>
-    <string name="first_fragment_get_user_permissions_text_second">Aperte o botão abaixo para avançarmos.</string>
-    <string name="first_fragment_get_user_permissions_button">Solicitar permissões</string>
-    <string name="first_fragment_error_get_api_data">Não foi possível acessar os dados de tempo agora. Tente novamente mais tarde</string>
+    <!--    Home fragment strings-->
+    <string name="home_fragment_get_user_permissions_text_first">Primeiro, precisamos te pedir de algumas permissões 😉.</string>
+    <string name="home_fragment_get_user_permissions_text_second">Aperte o botão abaixo para avançarmos.</string>
+    <string name="home_fragment_get_user_permissions_button">Solicitar permissões</string>
+
+    <!--    Detail Fragment Strings-->
+    <string name="details_fragment_actual_temp">Temperatura atual #actualTemp º</string>
+    <string name="details_fragment_min_temp">Temperatura mínima de hoje #minTemp º</string>
+    <string name="details_fragment_max_temp">Temperatura máxima de hoje #maxTemp º</string>
+    <string name="details_fragment_humidity">Humidade relativa do ar #humidity</string>
+    <string name="details_fragment_pressure">Pressão do ar #pressure hPa</string>
+    <string name="details_fragment_visibility">Visibilidade de #visibility metros</string>
+    <string name="details_fragment_wind_speed">Velocidade do vento #windSpeed #metric</string>
+    <string name="details_fragment_wind_speed_metric_metric">metros/segundo</string>
+    <string name="details_fragment_wind_speed_metric_imperial">milhas/hora</string>
 
     <!--    Weather api responses strings-->
     <string name="error_empty_response_weather_data">Não teve dados na resposta da weather api</string>
     <string name="error_response_not_successful_weather_data">A resposta não foi bem sucedida da weather api</string>
+    <string name="error_get_api_data">Não foi possível acessar os dados de tempo agora. Tente novamente mais tarde</string>
+    <string name="error_set_map_marker">Não foi possível marcar a cidade no mapa agora. Tente novamente mais tarde</string>
+
 </resources>

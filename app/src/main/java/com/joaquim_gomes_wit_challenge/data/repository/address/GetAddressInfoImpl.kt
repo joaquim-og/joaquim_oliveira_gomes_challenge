@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.maps.model.LatLng
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.ERROR_CALL_API_LAT_LNG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.ERROR_CALL_API_LAT_LNG
 
 class GetAddressInfoImpl() : GetAddressInfo {
 

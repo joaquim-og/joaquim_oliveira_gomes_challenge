@@ -12,25 +12,26 @@ import com.joaquim_gomes_wit_challenge.MyApplication.Companion.globalContext
 import com.joaquim_gomes_wit_challenge.R
 import com.joaquim_gomes_wit_challenge.data.commom.Decoder
 import com.joaquim_gomes_wit_challenge.data.commom.SharedPrefs
+import com.joaquim_gomes_wit_challenge.data.commom.extensions.toDateTime
 import com.joaquim_gomes_wit_challenge.data.commom.inAppFirebaseAnalytics.InAppFirebaseAnalytics.ER_GET_WEATHER
 import com.joaquim_gomes_wit_challenge.data.commom.inAppFirebaseAnalytics.InAppFirebaseAnalytics.GET_WEATHER_DATA
 import com.joaquim_gomes_wit_challenge.data.commom.inAppFirebaseAnalytics.InAppFirebaseAnalytics.firebaseAnalytics
 import com.joaquim_gomes_wit_challenge.data.model.weather.ScreenWeatherInfo
 import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherApiResult
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.BERLIN_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.COPENHAGEN_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.DUBLIN_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.LISBON_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.LONDON_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.MADRID_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.PARIS_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.PRAGUE_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.ROME_LAT_LONG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.AddressInfoObjects.VIENNA_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.BERLIN_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.COPENHAGEN_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.DUBLIN_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.LISBON_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.LONDON_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.MADRID_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.PARIS_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.PRAGUE_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.ROME_LAT_LONG
+import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.VIENNA_LAT_LONG
 import com.joaquim_gomes_wit_challenge.data.network.weather_api.RemoteDataSourceWeatherInfo
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.ERROR_CALL_API_WEATHER
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.STATUS_OK
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.WEATHER_API_KEY
+import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherInfoObjects.ERROR_CALL_API_WEATHER
+import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherInfoObjects.STATUS_OK
+import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherInfoObjects.WEATHER_API_KEY
 import com.joaquim_gomes_wit_challenge.data.repository.address.GetAddressInfoImpl
 import kotlinx.coroutines.*
 import retrofit2.Call
@@ -112,11 +113,19 @@ class GetWeatherInfoImpl(
                             if (responseData.cod == STATUS_OK) {
                                 responseData.let {
                                     val weatherInfo = ScreenWeatherInfo(
-                                        name_city = it.name,
-                                        temperature = it.main.temp.toString(),
+                                        nameCity = it.name,
+                                        temperatureActual = it.main.temp.toString(),
                                         icon = it.weather[0].icon,
                                         humidity = it.main.humidity.toString(),
-                                        description_weather = it.weather[0].description
+                                        descriptionWeather = it.weather[0].description,
+                                        date = it.dt.toDateTime(),
+                                        temperatureMin = it.main.temp_min.toString(),
+                                        temperatureMax = it.main.temp_max.toString(),
+                                        pressure = it.main.pressure.toString(),
+                                        visibility = it.visibility.toString(),
+                                        windSpeed = it.wind.speed.toString(),
+                                        lat = it.coord.lat,
+                                        lng = it.coord.lon
                                     )
 
                                     weatherData(weatherInfo)

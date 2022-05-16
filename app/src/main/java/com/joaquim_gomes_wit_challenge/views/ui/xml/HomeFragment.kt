@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
 import com.joaquim_gomes_wit_challenge.R
 import com.joaquim_gomes_wit_challenge.data.commom.CheckPermissions
-import com.joaquim_gomes_wit_challenge.data.commom.GetCalendar
 import com.joaquim_gomes_wit_challenge.data.commom.SetToastMessage
 import com.joaquim_gomes_wit_challenge.data.commom.extensions.hide
 import com.joaquim_gomes_wit_challenge.data.commom.extensions.navigateSafe
@@ -32,7 +31,6 @@ class HomeFragment : Fragment() {
     private val toastMessage: SetToastMessage by inject()
     private val verifyNetwork: VerifyNetwork by inject()
     private val checkPermissions: CheckPermissions by inject()
-    private val getDate: GetCalendar by inject()
 
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
@@ -109,7 +107,7 @@ class HomeFragment : Fragment() {
             Observer { eventsWeatherDetails ->
                 eventsWeatherDetails?.let {
                     setRecyclerData(it)
-                } ?: toastMessage.setToastMessage(R.string.first_fragment_error_get_api_data)
+                } ?: toastMessage.setToastMessage(R.string.error_get_api_data)
             })
     }
 
@@ -124,7 +122,7 @@ class HomeFragment : Fragment() {
         }
 
         val weatherAdapter = HomeFragmentAdapter(
-            weatherListData, getDate, homeViewModel, onClick = {
+            weatherListData, homeViewModel, onClick = {
                 homeViewModel.setSelectedCity(it)
                 navigateToSelectedCity()
             }
@@ -142,13 +140,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToSelectedCity() {
-        //TODO
-        // arrumar o layout dos cards, setar um pouco de margem em cima
-        // arrumar os LAT e LNG que realmente estão fora da cidade, pegar o genérico da cidade
-        // puxar a tela dos próximos passos
-        // ta dando erro só pq alterei o flow do CI
-
-        toastMessage.setToastMessage("AQUI VAI PRA TELA DE DETALHES")
+        navigateSafe(R.id.action_nav_home_to_cityDetailsFragment)
     }
 
 

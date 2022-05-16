@@ -1,4 +1,4 @@
-package com.joaquim_gomes_wit_challenge.data.network.weather_api
+package com.joaquim_gomes_wit_challenge.data.model.weather
 
 
 object WeatherInfoObjects {

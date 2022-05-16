@@ -5,7 +5,6 @@ import androidx.core.content.ContextCompat
 import com.joaquim_gomes_wit_challenge.MyApplication.Companion.globalContext
 import com.joaquim_gomes_wit_challenge.data.commom.CheckPermissions
 import com.joaquim_gomes_wit_challenge.data.commom.Decoder
-import com.joaquim_gomes_wit_challenge.data.commom.GetCalendar
 import com.joaquim_gomes_wit_challenge.data.commom.SetToastMessage
 import com.joaquim_gomes_wit_challenge.data.commom.network.VerifyNetwork
 import org.koin.core.context.loadKoinModules
@@ -19,7 +18,6 @@ private val loadFeature by lazy {
         listOf(
             verifyNetworkStatus,
             setToastMessageModule,
-            getWeekDayModule,
             checkPermissions,
             decoder
         )
@@ -39,10 +37,6 @@ val verifyNetworkStatus: Module = module {
 
 val setToastMessageModule: Module = module {
     single { SetToastMessage() }
-}
-
-val getWeekDayModule: Module = module {
-    single { GetCalendar() }
 }
 
 val checkPermissions: Module = module {

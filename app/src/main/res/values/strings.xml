@@ -14,15 +14,26 @@
     <string name="general_text_place_holder_description_weather_temp">#weather_temp º</string>
     <string name="general_text_place_holder_description_weather_text">#weather_description</string>
 
-    <!--    First fragment strings-->
-    <string name="first_fragment_get_user_permissions_text_first">First, we need to get some permissions 😉.</string>
-    <string name="first_fragment_get_user_permissions_text_second">Tap the button below to proceed</string>
-    <string name="first_fragment_get_user_permissions_button">Get permissions</string>
-    <string name="first_fragment_error_get_api_data">We cannot access weather data now, please try again later</string>
+    <!--    Home fragment strings-->
+    <string name="home_fragment_get_user_permissions_text_first">First, we need to get some permissions 😉.</string>
+    <string name="home_fragment_get_user_permissions_text_second">Tap the button below to proceed</string>
+    <string name="home_fragment_get_user_permissions_button">Get permissions</string>
+
+    <!--    Detail Fragment Strings-->
+    <string name="details_fragment_actual_temp">Actual temperature #actualTemp º</string>
+    <string name="details_fragment_min_temp">Min today temperature #minTemp º</string>
+    <string name="details_fragment_max_temp">Max today temperature #maxTemp º</string>
+    <string name="details_fragment_humidity">Air humidity #humidity</string>
+    <string name="details_fragment_pressure">Air pressure #pressure hPa</string>
+    <string name="details_fragment_visibility">Visibility in #visibility meters</string>
+    <string name="details_fragment_wind_speed">Wind speed #windSpeed #metric</string>
+    <string name="details_fragment_wind_speed_metric_metric">meters/sec</string>
+    <string name="details_fragment_wind_speed_metric_imperial">miles/hour</string>
 
     <!--    Weather api responses strings-->
     <string name="error_empty_response_weather_data">No data in api weather response</string>
     <string name="error_response_not_successful_weather_data">Weather api response was not successful</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="error_get_api_data">We cannot access weather data now, please try again later</string>
+    <string name="error_set_map_marker">We cannot set map marker for now, please try again later</string>
+
 </resources>

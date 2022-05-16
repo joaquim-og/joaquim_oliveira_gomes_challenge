@@ -18,6 +18,13 @@
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             />
+        <action
+            android:id="@+id/action_nav_home_to_cityDetailsFragment"
+            app:destination="@id/cityDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
 
     <dialog
@@ -35,6 +42,20 @@
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="false" />
     </dialog>
+    <fragment
+        android:id="@+id/cityDetailsFragment"
+        android:name="com.joaquim_gomes_wit_challenge.views.ui.xml.CityDetailsFragment"
+        android:label="CityDetailsFragment" >
+        <action
+            android:id="@+id/action_cityDetailsFragment_to_nav_home"
+            app:destination="@id/nav_home"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
+    </fragment>
 
 
 </navigation>

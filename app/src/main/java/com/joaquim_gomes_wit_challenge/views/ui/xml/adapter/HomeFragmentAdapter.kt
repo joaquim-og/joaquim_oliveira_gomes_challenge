@@ -10,15 +10,12 @@ import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.joaquim_gomes_wit_challenge.R
-import com.joaquim_gomes_wit_challenge.data.commom.GetCalendar
 import com.joaquim_gomes_wit_challenge.data.model.weather.ScreenWeatherInfo
 import com.joaquim_gomes_wit_challenge.databinding.CardHomeRecyclerViewBinding
 import com.joaquim_gomes_wit_challenge.views.viewModel.HomeViewModel
-import kotlinx.datetime.toLocalDate
 
 class HomeFragmentAdapter(
     private val events: List<ScreenWeatherInfo>,
-    private val getDate: GetCalendar,
     private val homeViewModel: HomeViewModel,
     val onClick: (ScreenWeatherInfo) -> Unit
 ) : RecyclerView.Adapter<HomeFragmentAdapter.EventsView>() {
@@ -78,12 +75,12 @@ class HomeFragmentAdapter(
 
         fun bind(weatherData: ScreenWeatherInfo, position: Int) {
             with(binding) {
-                cardHomeEventItemTitle.text = weatherData.name_city
+                cardHomeEventItemTitle.text = weatherData.nameCity
                 cardHomeEventItemTemp.text = cardHomeEventItemTemp.context.getString(
                     R.string.general_text_place_holder_description_weather_temp
-                ).replace("#weather_temp", weatherData.temperature ?: "")
-                cardHomeEventItemDate.text = getDate.getDate()
-                cardHomeEventItemWeatherDescription.text = weatherData.description_weather
+                ).replace("#weather_temp", weatherData.temperatureActual ?: "")
+                cardHomeEventItemDate.text = weatherData.date
+                cardHomeEventItemWeatherDescription.text = weatherData.descriptionWeather
                 cardHomeImgAnimation.setAnimation(homeViewModel.getWeatherIcon(weatherData.icon))
             }
         }

@@ -2,8 +2,8 @@ package com.joaquim_gomes_wit_challenge.data.network.weather_api
 
 import com.google.android.gms.maps.model.LatLng
 import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherApiResult
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.WEATHER_API_CALL_LANG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.WEATHER_API_CALL_UNITS
+import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherInfoObjects.WEATHER_API_CALL_LANG
+import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherInfoObjects.WEATHER_API_CALL_UNITS
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
