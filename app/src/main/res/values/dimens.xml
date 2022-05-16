@@ -1,3 +1,4 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="general_title_dimen">20sp</dimen>
+    <dimen name="card_home_event_detail_normal_dimen">16sp</dimen>
 </resources>

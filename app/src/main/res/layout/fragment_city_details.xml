@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.ui.xml.CityDetailsFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fragmentCityDetailsMapConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                app:layout_constraintBottom_toTopOf="@+id/fragmentCityDetailsTextsConstraint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.gms.maps.MapView
+                    android:id="@+id/fragmentCityDetailsMapView"
+                    android:layout_width="match_parent"
+                    android:layout_height="212dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fragmentCityDetailsTextsConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fragmentCityDetailsMapConstraint">
+
+                <TextView
+                    android:id="@+id/fragmentCityDetailsCityName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textAlignment="center"
+                    android:textSize="30sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/general_text_place_holder_title" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/fragmentCityDetailLinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="left"
+                    android:orientation="vertical"
+                    android:paddingLeft="10dp"
+                    android:weightSum="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fragmentCityDetailsCityName">
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsActualTempTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="2"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_adjust_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/patientDetailsTextsPatientLinearFirst"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsMinTempTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="2"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_remove_circle_outline_24"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsMaxTempTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="2"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_add_circle_24"
+                        app:layout_constraintStart_toStartOf="@+id/patientDetailsTextsPatientType"
+                        app:layout_constraintTop_toBottomOf="@+id/patientDetailsTextsPatientType"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsHumidityTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="2"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_invert_colors_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/patientDetailsTextsPatientLinearFirst"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsDescriptionTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="2"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_description_24"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/patientDetailsTextsPatientLinearFirst"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsDateTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="2"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_calendar_month_24"
+                        app:layout_constraintStart_toStartOf="@+id/patientDetailsTextsPatientType"
+                        app:layout_constraintTop_toBottomOf="@+id/patientDetailsTextsPatientType"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsPressureTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="7"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_compress_24"
+                        app:layout_constraintStart_toStartOf="@+id/patientDetailsTextsPatientType"
+                        app:layout_constraintTop_toBottomOf="@+id/patientDetailsTextsPatientType"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsVisibilityTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="2"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_remove_red_eye_24"
+                        app:layout_constraintStart_toStartOf="@+id/patientDetailsTextsPatientType"
+                        app:layout_constraintTop_toBottomOf="@+id/patientDetailsTextsPatientType"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                    <TextView
+                        android:id="@+id/fragmentCityDetailsWindSpeedTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:drawablePadding="10dp"
+                        android:ellipsize="end"
+                        android:maxWidth="304dp"
+                        android:maxLines="2"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textAlignment="textStart"
+                        android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                        app:drawableStartCompat="@drawable/ic_baseline_double_arrow_24"
+                        app:layout_constraintStart_toStartOf="@+id/patientDetailsTextsPatientType"
+                        app:layout_constraintTop_toBottomOf="@+id/patientDetailsTextsPatientType"
+                        tools:text="@string/general_text_place_holder_text" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="eventItem"
+            type="com.joaquim_gomes_wit_challenge.data.model.weather.ScreenWeatherInfo" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_home_event_item_card"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:layout_marginBottom="10dp"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeWidth="1dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/card_home_event_item_constraint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_goneMarginEnd="15dp">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/card_home_img_animation"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:elevation="5dp"
+                    app:lottie_fileName="home_animation_loading.json"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true" />
+
+                <TextView
+                    android:id="@+id/card_home_event_item_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:drawablePadding="10dp"
+                    android:ellipsize="end"
+                    android:maxWidth="200dp"
+                    android:maxLines="2"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@{eventItem.nameCity}"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/general_title_dimen"
+                    app:drawableStartCompat="@drawable/ic_baseline_location_city_24"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/card_home_img_animation"
+                    tools:text="@string/general_text_place_holder_title" />
+
+                <TextView
+                    android:id="@+id/card_home_event_item_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawablePadding="10dp"
+                    android:ellipsize="end"
+                    android:maxWidth="304dp"
+                    android:maxLines="2"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                    app:drawableStartCompat="@drawable/ic_baseline_adjust_24"
+                    app:layout_constraintStart_toStartOf="@+id/card_home_event_item_title"
+                    app:layout_constraintTop_toBottomOf="@+id/card_home_event_item_title"
+                    tools:text="@string/general_text_place_holder_text" />
+
+                <TextView
+                    android:id="@+id/card_home_event_item_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:drawablePadding="10dp"
+                    android:ellipsize="end"
+                    android:maxWidth="304dp"
+                    android:maxLines="2"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                    app:drawableStartCompat="@drawable/ic_baseline_calendar_month_24"
+                    app:layout_constraintStart_toStartOf="@+id/card_home_event_item_title"
+                    app:layout_constraintTop_toBottomOf="@+id/card_home_event_item_temp"
+                    tools:text="@string/general_text_place_holder_text" />
+
+
+                <TextView
+                    android:id="@+id/card_home_event_item_weather_description"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:drawablePadding="10dp"
+                    android:ellipsize="end"
+                    android:maxWidth="304dp"
+                    android:maxLines="2"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/card_home_event_detail_normal_dimen"
+                    app:drawableStartCompat="@drawable/ic_baseline_info_24"
+                    app:getEventWeatherDescription="@{eventItem.descriptionWeather}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/card_home_event_item_date"
+                    app:layout_constraintTop_toBottomOf="@+id/card_home_event_item_date"
+                    tools:text="@string/general_text_place_holder_description_weather_text" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

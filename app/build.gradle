@@ -85,6 +85,9 @@ dependencies {
     //Firestore
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
+    //Firebase Perf
+    implementation 'com.google.firebase:firebase-perf-ktx'
+
     //Analytics
     implementation 'com.google.firebase:firebase-analytics-ktx'
 

@@ -1,6 +1,5 @@
 package com.joaquim_gomes_wit_challenge.views
 
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,11 +8,11 @@ import androidx.navigation.ui.navigateUp
 import androidx.databinding.DataBindingUtil
 import com.joaquim_gomes_wit_challenge.R
 import com.joaquim_gomes_wit_challenge.data.commom.SharedPrefs
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.WEATHER_API_CALL_LANG
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.WEATHER_API_CALL_UNITS
+import com.joaquim_gomes_wit_challenge.data.commom.extensions.getSystemLocale
+import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherInfoObjects.WEATHER_API_CALL_LANG
+import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherInfoObjects.WEATHER_API_CALL_UNITS
 import com.joaquim_gomes_wit_challenge.databinding.ActivityMainBinding
 import com.joaquim_gomes_wit_challenge.views.viewModel.HomeViewModel
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -45,13 +44,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initWeatherInfoApiObjects() {
-        val systemLocaleLang = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            this.resources.configuration.locales[0].toString().lowercase()
-        } else {
-            this.resources.configuration.locale.toString().lowercase()
-        }
+        val systemLocaleLang = this.getSystemLocale()
 
-        WEATHER_API_CALL_LANG = systemLocaleLang
+        WEATHER_API_CALL_LANG = systemLocaleLang.dropLast(3).lowercase()
 
         WEATHER_API_CALL_UNITS = if (systemLocaleLang == "en_GB" || systemLocaleLang == "en_US") {
             "imperial"

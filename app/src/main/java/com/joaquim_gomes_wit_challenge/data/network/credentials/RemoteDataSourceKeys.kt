@@ -6,7 +6,7 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.joaquim_gomes_wit_challenge.data.commom.SharedPrefs
 import com.joaquim_gomes_wit_challenge.data.model.remoteDbKeys
-import com.joaquim_gomes_wit_challenge.data.network.weather_api.WeatherInfoObjects.WEATHER_API_KEY
+import com.joaquim_gomes_wit_challenge.data.model.weather.WeatherInfoObjects.WEATHER_API_KEY
 import kotlinx.coroutines.tasks.await
 
 class RemoteDataSourceKeys(

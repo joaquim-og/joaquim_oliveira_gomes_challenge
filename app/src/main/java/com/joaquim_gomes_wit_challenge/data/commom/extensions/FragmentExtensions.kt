@@ -1,11 +1,8 @@
 package com.joaquim_gomes_wit_challenge.data.commom.extensions
 
-import android.content.Context
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.os.VibrationEffect
-import android.os.Vibrator
 import androidx.annotation.IdRes
 import androidx.fragment.app.Fragment
 import androidx.navigation.NavDirections
@@ -74,11 +71,10 @@ fun Fragment.mayNavigate(): Boolean {
 
 }
 
-fun Fragment.vibratePhone() {
-    val vibrator = context?.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-        vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+fun Fragment.getSystemLocale(): String {
+    return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+        this.resources.configuration.locales[0].toString()
     } else {
-        vibrator.vibrate(200)
+        this.resources.configuration.locale.toString()
     }
 }
