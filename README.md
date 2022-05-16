@@ -18,6 +18,7 @@
 - [x] [Live data]
 - [x] [Lottie]
 - [x] [Google Maps]
+- [x] [Android Compose]
 - [x] [Firestore to host weather api key]
 - [x] [Firebase analytics]
 - [x] [Firebase perform monitoring]
