@@ -24,8 +24,6 @@ class HomeViewModel(
         repositoryGetWeatherInfo.getWeatherInfoByLatLong(fusedLocationClient)
     }
 
-    fun getWeatherIcon(icon: String?): String = repositoryGetWeatherInfo.mapWeatherIcon(icon)
-
     fun getApiKeys() {
         CoroutineScope(Dispatchers.IO).launch {
             val res = async { remoteKeysRepository.getKeysItems() }

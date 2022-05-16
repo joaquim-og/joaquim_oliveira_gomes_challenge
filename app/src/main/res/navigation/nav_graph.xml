@@ -16,11 +16,17 @@
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            />
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_nav_home_to_cityDetailsFragment"
             app:destination="@id/cityDetailsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        <action
+            android:id="@+id/action_nav_home_to_homeFragmentComposeView"
+            app:destination="@id/homeFragmentComposeView"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
@@ -31,7 +37,7 @@
         android:id="@+id/fragmentRequestLocationBottomDialog"
         android:name="com.joaquim_gomes_wit_challenge.views.ui.xml.FragmentRequestLocationBottomDialog"
         android:label="fragment_request_location_bottom_dialog"
-        tools:layout="@layout/fragment_request_location_bottom_dialog" >
+        tools:layout="@layout/fragment_request_location_bottom_dialog">
         <action
             android:id="@+id/action_fragmentRequestLocationBottomDialog_to_nav_home"
             app:destination="@id/nav_home"
@@ -45,10 +51,45 @@
     <fragment
         android:id="@+id/cityDetailsFragment"
         android:name="com.joaquim_gomes_wit_challenge.views.ui.xml.CityDetailsFragment"
-        android:label="CityDetailsFragment" >
+        android:label="CityDetailsFragment">
         <action
             android:id="@+id/action_cityDetailsFragment_to_nav_home"
             app:destination="@id/nav_home"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragmentComposeView"
+        android:name="com.joaquim_gomes_wit_challenge.views.ui.compose.HomeFragmentComposeView"
+        android:label="HomeFragmentComposeView">
+        <action
+            android:id="@+id/action_homeFragmentComposeView_to_nav_home"
+            app:destination="@id/nav_home"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@id/nav_home"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_homeFragmentComposeView_to_cityDetailsComposeFragment"
+            app:destination="@id/cityDetailsComposeFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityDetailsComposeFragment"
+        android:name="com.joaquim_gomes_wit_challenge.views.ui.compose.CityDetailsComposeFragment"
+        android:label="CityDetailsComposeFragment">
+        <action
+            android:id="@+id/action_cityDetailsComposeFragment_to_homeFragmentComposeView"
+            app:destination="@id/homeFragmentComposeView"
             app:enterAnim="@anim/nav_default_enter_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"

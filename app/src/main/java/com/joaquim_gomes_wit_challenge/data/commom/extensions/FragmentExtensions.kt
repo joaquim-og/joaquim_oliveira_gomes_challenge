@@ -78,3 +78,13 @@ fun Fragment.getSystemLocale(): String {
         this.resources.configuration.locale.toString()
     }
 }
+
+fun Fragment.getSystemMetric(): String {
+    val systemLocaleLang = this.getSystemLocale()
+
+    return if (systemLocaleLang == "en_GB" || systemLocaleLang == "en_US") {
+        getString(R.string.details_fragment_wind_speed_metric_imperial)
+    } else {
+        getString(R.string.details_fragment_wind_speed_metric_metric)
+    }
+}

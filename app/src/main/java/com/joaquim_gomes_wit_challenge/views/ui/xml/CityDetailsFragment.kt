@@ -14,7 +14,7 @@ import com.google.android.gms.maps.model.LatLng
 import com.joaquim_gomes_wit_challenge.MyApplication.Companion.globalContext
 import com.joaquim_gomes_wit_challenge.R
 import com.joaquim_gomes_wit_challenge.data.commom.SetToastMessage
-import com.joaquim_gomes_wit_challenge.data.commom.extensions.getSystemLocale
+import com.joaquim_gomes_wit_challenge.data.commom.extensions.getSystemMetric
 import com.joaquim_gomes_wit_challenge.data.commom.extensions.setMarkerLocation
 import com.joaquim_gomes_wit_challenge.data.model.weather.ScreenWeatherInfo
 import com.joaquim_gomes_wit_challenge.databinding.FragmentCityDetailsBinding
@@ -96,16 +96,6 @@ class CityDetailsFragment : Fragment() {
             fragmentCityDetailsWindSpeedTextView.text = getString(R.string.details_fragment_wind_speed).replace("#windSpeed", "${screenWeatherInfo.windSpeed}").replace("#metric", getSystemMetric())
         }
 
-    }
-
-    private fun getSystemMetric(): String {
-        val systemLocaleLang = this.getSystemLocale()
-
-        return if (systemLocaleLang == "en_GB" || systemLocaleLang == "en_US") {
-            getString(R.string.details_fragment_wind_speed_metric_imperial)
-        } else {
-            getString(R.string.details_fragment_wind_speed_metric_metric)
-        }
     }
 
     private fun setMapUiConfig(savedInstanceState: Bundle?) {
