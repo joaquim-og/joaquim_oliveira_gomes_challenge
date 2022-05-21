@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.gms.location.LocationServices
 import com.joaquim_gomes_wit_challenge.R
@@ -34,18 +33,15 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        getWeatherData()
         return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        getWeatherData()
         setupViews()
-
     }
 
     private fun setupViews() {
@@ -58,24 +54,24 @@ class HomeFragment : Fragment() {
             }
         }
 
+        observeWeatherInfo()
     }
 
     private fun getWeatherData() {
         val locationServices = LocationServices.getFusedLocationProviderClient(requireActivity())
         homeViewModel.getWeatherData(locationServices)
-        observeWeatherInfo()
     }
 
     private fun observeWeatherInfo() {
         binding.fragmentHomeLoading.show()
 
         homeViewModel.actualWeatherInfo.observe(
-            viewLifecycleOwner,
-            Observer { eventsWeatherDetails ->
-                eventsWeatherDetails?.let {
-                    setRecyclerData(it)
-                } ?: toastMessage.setToastMessage(R.string.error_get_api_data)
-            })
+            viewLifecycleOwner
+        ) { eventsWeatherDetails ->
+            eventsWeatherDetails?.let {
+                setRecyclerData(it)
+            } ?: toastMessage.setToastMessage(R.string.error_get_api_data)
+        }
     }
 
     private fun setRecyclerData(listWeatherInfo: List<ScreenWeatherInfo?>) {
@@ -119,4 +115,5 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

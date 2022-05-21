@@ -10,25 +10,19 @@ import com.joaquim_gomes_wit_challenge.data.model.address.AddressInfoObjects.ERR
 
 class GetAddressInfoImpl() : GetAddressInfo {
 
-    private val _userLocalLatLng = MutableLiveData<LatLng?>()
-    val userLocalLatLng: LiveData<LatLng?> get() = _userLocalLatLng
-
     override fun getDeviceLocation(
         fusedLocationClient: FusedLocationProviderClient,
         userLatLng: (LatLng) -> Unit
     ) {
         try {
-            if (_userLocalLatLng.value == null) {
-
-                fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
-                    if (location != null) {
-                        userLatLng(
-                            LatLng(
-                                location.latitude,
-                                location.longitude
-                            )
+            fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
+                if (location != null) {
+                    userLatLng(
+                        LatLng(
+                            location.latitude,
+                            location.longitude
                         )
-                    }
+                    )
                 }
             }
 

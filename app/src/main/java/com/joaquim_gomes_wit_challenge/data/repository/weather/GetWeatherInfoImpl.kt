@@ -47,13 +47,12 @@ class GetWeatherInfoImpl(
     private val _errorOnGetWeather = MutableLiveData<Boolean?>()
     val errorOnGetWeather: LiveData<Boolean?> get() = _errorOnGetWeather
 
-    private val _weatherInfo = MutableLiveData<List<ScreenWeatherInfo?>>()
-    val weatherInfo: LiveData<List<ScreenWeatherInfo?>> get() = _weatherInfo
-
-    private val _userLocalLatLng = repositoryGetAddressInfo.userLocalLatLng
-
-    override fun getWeatherInfoByLatLong(fusedLocationClient: FusedLocationProviderClient) {
-
+    override fun getWeatherInfoByLatLong(
+        fusedLocationClient: FusedLocationProviderClient,
+        weatherData: (
+            MutableList<ScreenWeatherInfo>
+        ) -> Unit
+    ) {
         CoroutineScope(Dispatchers.IO).launch {
 
             repositoryGetAddressInfo.getDeviceLocation(
@@ -79,7 +78,7 @@ class GetWeatherInfoImpl(
                     listOfCities.forEach {
                         getWeatherData(it, weatherData = { cityWeather ->
                             listOfWeatherData.add(cityWeather)
-                            _weatherInfo.postValue(listOfWeatherData)
+                            weatherData(listOfWeatherData)
                         })
                     }
 
