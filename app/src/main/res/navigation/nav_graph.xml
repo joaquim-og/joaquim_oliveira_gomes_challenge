@@ -3,20 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/requestPermissionFragment">
 
     <fragment
         android:id="@+id/nav_home"
         android:name="com.joaquim_gomes_wit_challenge.views.ui.xml.HomeFragment"
         tools:layout="@layout/fragment_home">
 
-        <action
-            android:id="@+id/action_nav_home_to_fragmentRequestLocationBottomDialog"
-            app:destination="@id/fragmentRequestLocationBottomDialog"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <action
             android:id="@+id/action_nav_home_to_cityDetailsFragment"
             app:destination="@id/cityDetailsFragment"
@@ -96,6 +89,25 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
             app:popUpTo="@id/nav_home"
             app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestPermissionFragment"
+        android:name="com.joaquim_gomes_wit_challenge.views.ui.xml.RequestPermissionFragment"
+        android:label="RequestPermissionFragment" >
+        <action
+            android:id="@+id/action_requestPermissionFragment_to_nav_home"
+            app:destination="@id/nav_home"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+        <action
+            android:id="@+id/action_requestPermissionFragment_to_fragmentRequestLocationBottomDialog"
+            app:destination="@id/fragmentRequestLocationBottomDialog"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
 
 

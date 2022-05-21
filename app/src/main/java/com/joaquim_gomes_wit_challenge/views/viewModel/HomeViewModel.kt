@@ -14,14 +14,18 @@ class HomeViewModel(
     private val remoteKeysRepository: RemoteDataSourceKeys
 ) : ViewModel() {
 
-    private val _actualWeatherInfo = repositoryGetWeatherInfo.weatherInfo
+    private val _actualWeatherInfo = MutableLiveData<List<ScreenWeatherInfo?>>()
     val actualWeatherInfo: LiveData<List<ScreenWeatherInfo?>> get() = _actualWeatherInfo
 
     private val _selectedCityWeatherData = MutableLiveData<ScreenWeatherInfo?>()
     val selectedCityWeatherData: LiveData<ScreenWeatherInfo?> get() = _selectedCityWeatherData
 
     fun getWeatherData(fusedLocationClient: FusedLocationProviderClient) {
-        repositoryGetWeatherInfo.getWeatherInfoByLatLong(fusedLocationClient)
+        repositoryGetWeatherInfo.getWeatherInfoByLatLong(
+            fusedLocationClient,
+            weatherData = { weatherDataList ->
+                _actualWeatherInfo.postValue(weatherDataList)
+            })
     }
 
     fun getApiKeys() {
