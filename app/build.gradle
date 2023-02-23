@@ -80,7 +80,7 @@ dependencies {
     //Maps
     implementation 'com.google.android.gms:play-services-maps:18.0.2'
     implementation 'com.google.maps.android:maps-compose:2.1.1'
-    implementation "androidx.compose.foundation:foundation:1.2.0-beta02"
+    implementation "androidx.compose.foundation:foundation:1.4.0-beta02"
 
     //Play services
     implementation 'com.google.android.gms:play-services-location:19.0.1'
